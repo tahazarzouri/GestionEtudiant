@@ -45,8 +45,13 @@ public class Principale {
 				 dateString = sr.next();
 				SimpleDateFormat format = new SimpleDateFormat("dd-mm-yyyy");
 				 date = format.parse(dateString);
+				do {
 				System.out.println("civilite [Monsieu , Madame]");
 				 civilite = sr.next();
+					if (!civilite.equalsIgnoreCase("Monsieu") || !civilite.equalsIgnoreCase("Madame")) {
+						System.out.println("merci de choisir Monsieu ou Madame ");
+					}
+				} while (!civilite.equalsIgnoreCase("Monsieu") && !civilite.equalsIgnoreCase("Madame"));
 				ajouterEtudiant(nom, prenom, email, date, civilite);
 
 
