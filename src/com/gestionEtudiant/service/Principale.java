@@ -15,7 +15,7 @@ public class Principale {
 	static List<Etudiant> listEtudiant = new ArrayList<Etudiant>();
 	static Scanner sr = new Scanner(System.in);
 
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args) {
 		int choix = 0;
 		String nom = null;
 		String prenom = null;
@@ -44,7 +44,14 @@ public class Principale {
 				System.out.println("entrer la date Naissance  d'etudiant");
 				 dateString = sr.next();
 				SimpleDateFormat format = new SimpleDateFormat("dd-mm-yyyy");
-				 date = format.parse(dateString);
+				try {
+					date = format.parse(dateString);
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+
+					System.out.println("Plz entrer une date valide");
+					break;
+				}
 				do {
 				System.out.println("civilite [Monsieu , Madame]");
 				 civilite = sr.next();
